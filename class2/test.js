@@ -1,4 +1,4 @@
-const {sum, subt} = require('./math');
+const {sum, subt} = require('../common/math');
 
 let result, expected;
 
