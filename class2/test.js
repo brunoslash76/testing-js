@@ -1,17 +1,21 @@
 const {sum, subt} = require('./math');
 
-let result, expect;
+let result, expected;
 
 result = sum(3, 7);
-expect = 10;
-
-if (result !== expect) {
-    throw new Error(`${result} is not equal to ${expect}`)
-}
+expected = 10;
+expect(result).toBe(expected)
 
 result = subt(7, 3);
-expect = 4;
+expected = 4;
+expect(result).toBe(expected)
 
-if (result !== expect) {
-    throw new Error(`${result} is not equal to ${expect}`)
+function expect(actual) {
+    return {
+        toBe(expected) {
+            if (actual !== expected) {
+                throw new Error(`${actual} is not equal to ${expect}`)
+            }
+        }
+    }
 }
